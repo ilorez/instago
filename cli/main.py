@@ -22,6 +22,7 @@ def main():
                 "Delete all accounts",
                 "Exit"
             ],
+            vi_mode=True,
         ).execute()
 
         if choice == "Login with an account":
@@ -33,7 +34,8 @@ def main():
                 account_choices.append("Back to main menu")
                 account_choice = inquirer.select(
                     message="Select an account to use:",
-                    choices=account_choices
+                    choices=account_choices,
+                    vi_mode=True,
                 ).execute()
 
                 if account_choice == "Back to main menu":
@@ -48,19 +50,19 @@ def main():
                     print("Login failed.")
 
         elif choice == "Add an account":
-            username = inquirer.text(message="Enter the new Instagram username:").execute()
-            password = inquirer.secret(message="Enter the new Instagram password:").execute()
+            username = inquirer.text(message="Enter the new Instagram username:", vi_mode=True).execute()
+            password = inquirer.secret(message="Enter the new Instagram password:", vi_mode=True).execute()
             account_manager.add_account(username, password)
             print("Account added successfully.")
 
         elif choice == "Update an account":
-            username = inquirer.text(message="Enter the username of the account to update:").execute()
-            new_password = inquirer.secret(message="Enter the new password:").execute()
+            username = inquirer.text(message="Enter the username of the account to update:", vi_mode=True).execute()
+            new_password = inquirer.secret(message="Enter the new password:", vi_mode=True).execute()
             account_manager.update_account(username, new_password)
             print("Account updated successfully.")
 
         elif choice == "Delete an account":
-            username = inquirer.text(message="Enter the username of the account to delete:").execute()
+            username = inquirer.text(message="Enter the username of the account to delete:", vi_mode=True).execute()
             account_manager.delete_account(username)
             print("Account deleted successfully.")
 
@@ -74,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
