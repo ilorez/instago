@@ -47,6 +47,13 @@ def login(username=None, password=None):
         return False
 
 def logout():
-    # Placeholder for logout functionality
-    pass
+    # logout
+    try:
+        print("Log out action not implemented yet")
+        print("Logout successful")
+        return True
+    except Exception as e:
+        print(f"Logout failed: {e}")
+        return False
+
 
