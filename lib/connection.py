@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
+# Load  environment variables from .env file
 load_dotenv()
 
 def login(username=None, password=None):
@@ -37,8 +37,8 @@ def login(username=None, password=None):
         # Wait for the profile icon or a known element that signifies a logged-in state
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located(
-                (By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[6]/div/span/div/a'  # Adjust the XPath as needed
-                 ))
+                (By.XPATH, '/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[6]/div/span/div/a')
+            )
         )
         print("Login successful")
         return True
