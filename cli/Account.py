@@ -3,8 +3,14 @@ import os
 from datetime import datetime
 
 class Account:
-    def __init__(self, file_path='accounts.json'):
-        self.file_path = file_path
+    def __init__(self, file_path=None):
+        if file_path is None:
+            # Get the directory of the current script
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            # Set the default file path to the same directory as main.py
+            self.file_path = os.path.join(script_dir, 'accounts.json')
+        else:
+            self.file_path = file_path
         self._ensure_file()
 
     def _ensure_file(self):
